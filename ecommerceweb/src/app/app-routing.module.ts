@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'menu',component:MenuComponent},
   {path:'menu/:id',component:MenupageComponent},
   {path:'about',component:AboutComponent},
-  {path:'contact',component:ContactComponent}
+  {path:'contact',component:ContactComponent},
 ];
 
 @NgModule({

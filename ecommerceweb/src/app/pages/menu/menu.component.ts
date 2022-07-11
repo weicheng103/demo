@@ -1,3 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { Product } from './../../model/product';
+import { ProductService } from 'src/app/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
 
@@ -8,11 +11,25 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  productData: Product[] = [];
 
-  constructor(private service:OrderDetailsService) { }
+  constructor(private productService:ProductService) { }
   foodData:any;
+
   ngOnInit(): void {
-    this.foodData = this.service.foodDetails;
+    this.getProducts();
+  }
+
+  public getProducts(): void {
+    this.productService.getProducts().subscribe(
+      (response: Product[]) => {
+        this.productData = response;
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
   }
 
 }

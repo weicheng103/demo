@@ -10,6 +10,10 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MenupageComponent } from './pages/menupage/menupage.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -21,10 +25,13 @@ import { MenupageComponent } from './pages/menupage/menupage.component';
     AboutComponent,
     ContactComponent,
     MenupageComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 .banner
 {
-    background-image: url('../../../assets/img/banner.jpeg');
+    background-image: url('../../../assets/img/bannerimg.jpg');
     height: 600px;
     background-position: center;
     background-size: cover;
@@ -95,10 +95,10 @@
     margin-bottom: 20px;
 }
 
-.boximg
+#boximg
 {
-    height: 300px;
-    width: 400px;
+    height: 200px;
+    width: 300px;
 }
 
 @media screen and (max-width:600px)
@@ -107,5 +107,5 @@
 {
     height: 700px;
 }
-    
+
 }

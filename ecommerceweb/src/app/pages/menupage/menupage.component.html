@@ -4,29 +4,72 @@
 
         <div class="col-lg-6" *ngIf="menuData">
             <a routerLink="../../menu" class="btn btn-sm btn-dark mb-3">回上一頁</a>
-            <img src="{{menuData[0].foodImg}}" width="100%" />
-            <h1 class="mt-2">{{menuData[0].foodName}}</h1>
-            <p>{{menuData[0].foodDetails}}</p>
-            <p>{{menuData[0].foodPrice | currency:'TWD'}}</p>
-
-
+            <img src="{{menuData[0].image}}" width="50%" />
+            <h1 class="mt-2">{{menuData[0].name}}</h1>
+            <p>{{menuData[0].description}}</p>
+            <p>售價{{menuData[0].price | currency:'TWD'}}</p>
         </div>
 
         <div class="col-lg-6 col-lg-12">
             <h1>訂購資訊</h1>
-            <form>
-
-                <input type="text" class="form-control mb-3" placeholder="請輸入姓名" />
-                <input type="text" class="form-control mb-3" placeholder="請輸入電話" />
-                <textarea class="form-control" placeholder="請輸入收件地址"></textarea>
-                
+            <form #addForm="ngForm" (ngSubmit)="onAddOrder(addForm)">
+                <label for="name">姓名</label>
+                <input type="text" ngModel name="name" id="name" class="form-control mb-3" placeholder="請輸入姓名" required/>
+                <label for="address">地址</label>
+                <input type="text" ngModel name="address" id="address" class="form-control mb-3" placeholder="請輸入地址" required/>
+                <label for="phone">手機</label>
+                <input type="text" ngModel name="phone" id="phone" class="form-control mb-3" placeholder="請輸入手機" required/>
+                <label for="product_id" hidden>商品ID</label>
+                <input type="text" name="product_id" id="product_id" value="{{productData[0].id}}" class="form-control mb-3" placeholder="請輸入商品ID"required hidden/>
+                <label for="商品名稱">商品名稱</label>
+                <input type="text" name="product_name" id="product_name" value="{{productData[0].name}}" class="form-control mb-3" placeholder="請輸入商品名稱"required/>
+                <label for="訂購數量">訂購數量</label>
+                <input type="text" ngModel name="quantity" id="quantity" class="form-control mb-3" placeholder="請輸入數量"required/>
                 <button class="btn btn-md btn-dark mt-3">立即訂購</button>
-
             </form>
 
         </div>
 
     </div>
 
+     <!-- Add Employee Modal
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+            <div class="form-group">
+               <label for="name">Name</label>
+               <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+               <label for="email">Email Address</label>
+               <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">Job title</label>
+               <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">Phone</label>
+               <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>
+            </div>
+            <div class="form-group">
+               <label for="phone">Image URL</label>
+               <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+            </div>
+            <div class="modal-footer">
+               <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            </div>
+            </form>
+         </div>
+      </div>
+    </div>-->
 
 </div>

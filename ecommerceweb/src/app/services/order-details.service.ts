@@ -1,13 +1,31 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Order } from '../model/order';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Employee } from '../model/employee';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class OrderDetailsService {
+  private apiServerUrl = environment.apiBaseUrl;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  
+  public addEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(`${this.apiServerUrl}/employee/add`, employee);
+  }
+
+  public addOrder(order: Order):Observable<Order> {
+    return this.http.post<Order>(`${this.apiServerUrl}/order/add`, order);
+  }
+
+
+
+
   //foodDetails
   foodDetails =[
     {
